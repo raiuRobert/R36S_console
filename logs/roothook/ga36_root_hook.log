@@ -1,0 +1,5 @@
+=== root hook start, uptime 3.26, id 0
+6.01 udc=configured speed=high-speed
+POWER before: 0xF0
+10.06 POWER after: 0xC0 udc=configured speed=full-speed
+10.18 udc=configured speed=full-speed POWER=0xC0

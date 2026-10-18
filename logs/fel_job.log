@@ -1,0 +1,3 @@
+AWUSBFEX soc=00001650(A23) 00000001 ver=0001 44 08 scratchpad=00007e00 00000000 00000000
+usb_bulk_send() ERROR -7: Operation timed out
+FEL boot failed

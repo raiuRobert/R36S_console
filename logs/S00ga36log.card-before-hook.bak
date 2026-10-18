@@ -1,0 +1,46 @@
+#!/bin/sh
+# GA36-MB boot log (added for bring-up): saves the kernel log and some system state to the HOME
+# partition (FAT, /home/player = the card's 2nd partition) so it can be read on a PC without a
+# serial adapter. Three snapshots: right at rcS start, 20 s later and 60 s later.
+[ "$1" = stop ] && exit 0
+
+DIR=/home/player
+mountpoint -q "$DIR" || mount /dev/mmcblk0p2 "$DIR" 2>/dev/null
+
+snap() {
+    out=$DIR/ga36_linux_$1.log
+    {
+        echo "===== GA36 boot log $1: $2, uptime $(cut -d' ' -f1 /proc/uptime) s"
+        cat /proc/version /proc/cmdline
+        echo "--- cpuinfo"; grep -E 'processor|model name|Hardware|Revision' /proc/cpuinfo
+        echo "--- meminfo"; head -3 /proc/meminfo
+        echo "--- mounts"; cat /proc/mounts
+        echo "--- partitions"; cat /proc/partitions
+        echo "--- drm connectors"
+        for c in /sys/class/drm/card*-*; do
+            [ -e "$c/status" ] && echo "$c: $(cat "$c/status") $(cat "$c/enabled" 2>/dev/null) $(head -1 "$c/modes" 2>/dev/null)"
+        done
+        echo "--- framebuffers"; cat /proc/fb; ls -l /dev/fb* /dev/dri 2>&1
+        echo "--- backlight"
+        for b in /sys/class/backlight/*; do echo "$b: $(cat "$b/brightness" 2>/dev/null)/$(cat "$b/max_brightness" 2>/dev/null)"; done
+        echo "--- input devices"; cat /proc/bus/input/devices
+        echo "--- usb"
+        for u in /sys/class/udc/*; do echo "$u: $(cat "$u/state" 2>/dev/null)"; done
+        for d in /sys/bus/usb/devices/*; do [ -e "$d/product" ] && echo "$d: $(cat "$d/product")"; done
+        echo "--- power"
+        for p in /sys/class/power_supply/*; do
+            echo "$p: online=$(cat "$p/online" 2>/dev/null) capacity=$(cat "$p/capacity" 2>/dev/null) uV=$(cat "$p/voltage_now" 2>/dev/null)"
+        done
+        echo "--- processes"; ps
+        echo "--- other logs"
+        for f in /tmp/usb-gadget.log /var/log/resize-home.log /dev/shm/application/*.log; do
+            [ -f "$f" ] && { echo "## $f"; tail -50 "$f"; }
+        done
+        echo "--- dmesg"; dmesg
+    } > "$out" 2>&1
+    sync
+}
+
+snap 1 "rcS start"
+( sleep 20; snap 2 "20 s after rcS start"; sleep 40; snap 3 "60 s after rcS start" ) </dev/null >/dev/null 2>&1 &
+exit 0

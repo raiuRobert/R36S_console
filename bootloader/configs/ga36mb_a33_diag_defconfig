@@ -1,0 +1,45 @@
+CONFIG_ARM=y
+CONFIG_ARCH_SUNXI=y
+CONFIG_DEFAULT_DEVICE_TREE="sun8i-a33-sinlinx-sina33"
+CONFIG_SPL=y
+CONFIG_MACH_SUN8I_A33=y
+# DRAM settings taken from the stock GA36-MB boot0 header (DDR3, 552 MHz, ZQ 0x3bbb)
+CONFIG_DRAM_CLK=552
+CONFIG_DRAM_ZQ=15291
+CONFIG_DRAM_ODT_EN=y
+# AXP223 rails as set by the stock [power_sply] section of script.bin
+CONFIG_AXP_DCDC1_VOLT=3300
+CONFIG_AXP_DCDC2_VOLT=1100
+CONFIG_AXP_DCDC3_VOLT=1200
+CONFIG_AXP_DCDC5_VOLT=1500
+CONFIG_AXP_ALDO2_VOLT=2500
+CONFIG_AXP_ALDO3_VOLT=3000
+# No parallel LCD here (the panel is MIPI-DSI), so no U-Boot video
+# CONFIG_VIDEO is not set
+CONFIG_CMD_GPIO=y
+CONFIG_CMD_SLEEP=y
+# U-Boot console over the OTG USB-C port: the console appears on the PC as a COM port (USB ACM).
+# "ums 0 mmc 0" turns the console into a USB card reader so the SD card can stay in the console.
+CONFIG_USB_MUSB_GADGET=y
+CONFIG_USB_GADGET=y
+CONFIG_USB_GADGET_DOWNLOAD=y
+CONFIG_USB_FUNCTION_ACM=y
+CONFIG_USB_FUNCTION_MASS_STORAGE=y
+CONFIG_CMD_USB_MASS_STORAGE=y
+CONFIG_CONSOLE_MUX=y
+CONFIG_SYS_STDIO_DEREGISTER=y
+# Diagnostic build: log to RAM (ramlog), try the USB console, then jump back to FEL
+CONFIG_PREBOOT="setenv stdout serial,ramlog; setenv stderr serial,ramlog; echo === GA36 U-Boot diag (A33 build) ===; version; coninfo; bdinfo; dm tree; echo === starting usbacm ===; setenv stdout serial,ramlog,usbacm; setenv stderr serial,ramlog,usbacm; echo after usbacm; coninfo; dm tree; echo === back to FEL ===; go 0xffff0020"
+CONFIG_USE_PREBOOT=y
+CONFIG_BOOTDELAY=10
+# bootcmd:
+#  - boot the kernel in secure mode like the stock bootloader (its DTB has no PSCI node and uses
+#    the "allwinner,sun8i-a23" SMP method)
+#  - pull-ups on port E, where the gamepad buttons are (A = PE12, active low)
+#  - A held at boot/reset: copy RAM 0x40000000..+64 MiB (previous kernel's log) to the SD card at
+#    sector 0x200000 (1 GiB, past the goodluckOS partitions), then blink 2 s on / 2 s off forever
+#  - otherwise boot goodluckOS: Android boot image at sector 0x2a000, zImage after its 2 KiB header
+#    (0x2a004) with its own appended DTB and forced cmdline
+#  - if loading/booting fails: blink 3 s on / 1 s off forever
+CONFIG_USE_BOOTCOMMAND=y
+CONFIG_BOOTCOMMAND="setenv bootm_boot_mode sec; mw.l 0x01c208ac 0x55555555; mw.l 0x01c208b0 0x5; gpio input PE12; gpio input PE4; sleep 0.05; setexpr.l pe_dat *0x01c208a0; echo PE data ${pe_dat}; setexpr a_bit ${pe_dat} \"&\" 0x1000; setexpr s_bit ${pe_dat} \"&\" 0x10; gpio set PH0; if test ${a_bit} = 0 && test ${s_bit} != 0; then echo A held: dumping RAM to SD; gpio clear PH0; sleep 0.5; gpio set PH0; mmc dev 0 && mmc write 0x40000000 0x200000 0x20000; while true; do gpio set PH0; sleep 2; gpio clear PH0; sleep 2; done; fi; echo Booting goodluckOS; mmc dev 0 && mmc read ${kernel_addr_r} 0x2a004 0x4000 && bootz ${kernel_addr_r} - ${fdtcontroladdr}; echo Boot FAILED; while true; do gpio set PH0; sleep 3; gpio clear PH0; sleep 1; done"

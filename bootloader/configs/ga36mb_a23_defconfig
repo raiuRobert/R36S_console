@@ -1,0 +1,30 @@
+CONFIG_ARM=y
+CONFIG_ARCH_SUNXI=y
+CONFIG_DEFAULT_DEVICE_TREE="sun8i-a23-ga36mb"
+CONFIG_SPL=y
+# The GA36-MB here reports soc=1650 (A23) over FEL; DRAM settings from the q8 A23 tablet
+CONFIG_MACH_SUN8I_A23=y
+CONFIG_DRAM_CLK=432
+CONFIG_DRAM_ZQ=63306
+CONFIG_DRAM_ODT_EN=y
+# Debug UART2 on PB0/PB1 = the TX/RX pads next to the SoC
+CONFIG_CONS_INDEX=3
+# AXP223 rails as set by the stock [power_sply] section of the (A33) script.bin
+CONFIG_AXP_DCDC1_VOLT=3300
+CONFIG_AXP_DCDC5_VOLT=1500
+CONFIG_AXP_ALDO2_VOLT=2500
+CONFIG_AXP_ALDO3_VOLT=3000
+CONFIG_CMD_GPIO=y
+CONFIG_CMD_SLEEP=y
+# No USB device-mode support (keeps U-Boot minimal while bringing up this board).
+CONFIG_BOOTDELAY=0
+# bootcmd, with a blink signature per step (no serial adapter on this board):
+#  1. dark 3 s               = U-Boot proper reached its boot script
+#  2. save DRAM 0x40000000..+32 MiB to SD sector 0x200000 (1 GiB, past goodluckOS):
+#     1 long flash = saved, 6 rapid flashes = failed
+#  3. read the goodluckOS kernel (Android image at sector 0x2a000, zImage at 0x2a004):
+#     2 long flashes = loaded, 6 rapid flashes = failed
+#  4. backlight on, bootz (kernel in U-Boot's default non-secure mode); if bootz returns:
+#     3 s on / 1 s off forever
+CONFIG_USE_BOOTCOMMAND=y
+CONFIG_BOOTCOMMAND="gpio clear PH0; sleep 3; if mmc dev 0 && mmc write 0x40000000 0x200000 0x10000; then gpio set PH0; sleep 1; gpio clear PH0; sleep 1; else for i in 1 2 3 4 5 6; do gpio set PH0; sleep 0.15; gpio clear PH0; sleep 0.15; done; sleep 1; fi; if mmc read ${kernel_addr_r} 0x2a004 0x4000; then gpio set PH0; sleep 1; gpio clear PH0; sleep 0.5; gpio set PH0; sleep 1; gpio clear PH0; sleep 1; else for i in 1 2 3 4 5 6; do gpio set PH0; sleep 0.15; gpio clear PH0; sleep 0.15; done; sleep 1; fi; gpio set PH0; bootz ${kernel_addr_r} - ${fdtcontroladdr}; echo Boot FAILED; while true; do gpio set PH0; sleep 3; gpio clear PH0; sleep 1; done"

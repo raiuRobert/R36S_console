@@ -1,0 +1,447 @@
+===== GA36 boot log 1: rcS start, uptime 3.35 s
+Linux version 7.2.9-dirty (root@d792a8147db4) (arm-linux-gnueabihf-gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #2 SMP PREEMPT Fri Oct 16 18:25:12 UTC 2026
+root=/dev/mmcblk0p1 rootfstype=ext4 rootwait rw init=/sbin/init coherent_pool=4m loglevel=8
+--- cpuinfo
+processor	: 0
+model name	: ARMv7 Processor rev 5 (v7l)
+processor	: 1
+model name	: ARMv7 Processor rev 5 (v7l)
+Hardware	: Allwinner sun8i Family
+Revision	: 0000
+--- meminfo
+MemTotal:         506092 kB
+MemFree:          482828 kB
+MemAvailable:     480932 kB
+--- mounts
+/dev/root / ext4 rw,relatime 0 0
+devtmpfs /dev devtmpfs rw,relatime,size=244340k,nr_inodes=61085,mode=755 0 0
+proc /proc proc rw,relatime 0 0
+/dev/mmcblk0p2 /home/player vfat rw,relatime,uid=1000,gid=1000,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro 0 0
+devpts /dev/pts devpts rw,relatime,gid=5,mode=620,ptmxmode=666 0 0
+tmpfs /dev/shm tmpfs rw,relatime 0 0
+tmpfs /tmp tmpfs rw,noatime,size=65536k 0 0
+sysfs /sys sysfs rw,relatime 0 0
+tmpfs /run tmpfs rw,nosuid,nodev,relatime,size=4096k,mode=755 0 0
+--- partitions
+major minor  #blocks  name
+
+ 179        0   30547968 mmcblk0
+ 179        1     393216 mmcblk0p1
+ 179        2     524288 mmcblk0p2
+--- drm connectors
+/sys/class/drm/card1-DSI-1: connected enabled 640x480
+--- framebuffers
+0 sun4i-drmdrmfb
+crw-------    1 root     root       29,   0 Jan  2 04:58 /dev/fb0
+
+/dev/dri:
+total 0
+crw-------    1 root     root      226,   0 Jan  1 00:00 card0
+crw-------    1 root     root      226,   1 Jan  2 04:58 card1
+crw-------    1 root     root      226, 128 Jan  1 00:00 renderD128
+--- backlight
+/sys/class/backlight/backlight: 1/10
+--- input devices
+I: Bus=0019 Vendor=0001 Product=0001 Version=0100
+N: Name="1c22800.lradc"
+P: Phys=sun4i_lradc/input0
+S: Sysfs=/devices/platform/soc/1c22800.lradc/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=3
+B: KEY=c0000 0 0 0
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="axp20x-pek"
+P: Phys=m1kbd/input2
+S: Sysfs=/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp221-pek/input/input1
+U: Uniq=
+H: Handlers=kbd event1 
+B: PROP=0
+B: EV=3
+B: KEY=100000 0 0 0
+
+I: Bus=0019 Vendor=0000 Product=0000 Version=0000
+N: Name="GA36-MB Gamepad"
+P: Phys=
+S: Sysfs=/devices/platform/soc/1c28400.serial/1c28400.serial:0/1c28400.serial:0.0/serial0/serial0-0/input/input2
+U: Uniq=
+H: Handlers=js0 event2 
+B: PROP=0
+B: EV=b
+B: KEY=f 0 0 0 0 0 0 0 7fdb0000 0 0 0 0 0 0 0 0 0
+B: ABS=1b
+
+--- usb
+/sys/class/udc/musb-hdrc.2.auto: not attached
+/sys/bus/usb/devices/usb1: MUSB HDRC host driver
+/sys/bus/usb/devices/usb2: EHCI Host Controller
+/sys/bus/usb/devices/usb3: Generic Platform OHCI controller
+--- power
+/sys/class/power_supply/axp20x-battery: online=1 capacity=100 uV=4159100
+/sys/class/power_supply/axp20x-usb: online=1 capacity= uV=
+--- processes
+PID   USER     COMMAND
+    1 root     init
+    2 root     [kthreadd]
+    3 root     [pool_workqueue_]
+    4 root     [kworker/R-rcu_g]
+    5 root     [kworker/R-sync_]
+    6 root     [kworker/R-kvfre]
+    7 root     [kworker/R-slub_]
+    8 root     [kworker/R-netns]
+    9 root     [kworker/0:0-dev]
+   10 root     [kworker/0:1-eve]
+   11 root     [kworker/0:0H-mm]
+   12 root     [kworker/u8:0-pm]
+   13 root     [kworker/R-mm_pe]
+   14 root     [ksoftirqd/0]
+   15 root     [rcu_preempt]
+   16 root     [rcu_exp_par_gp_]
+   17 root     [rcu_exp_gp_kthr]
+   18 root     [migration/0]
+   19 root     [cpuhp/0]
+   20 root     [cpuhp/1]
+   21 root     [migration/1]
+   22 root     [ksoftirqd/1]
+   23 root     [kworker/1:0-eve]
+   24 root     [kworker/1:0H-kb]
+   25 root     [kdevtmpfs]
+   26 root     [kworker/R-inet_]
+   27 root     [oom_reaper]
+   28 root     [kworker/R-write]
+   29 root     [kcompactd0]
+   30 root     [kworker/R-kbloc]
+   31 root     [kworker/u8:1-tt]
+   32 root     [kworker/R-ata_s]
+   33 root     [kworker/R-devfr]
+   34 root     [watchdogd]
+   35 root     [kworker/1:1-rcu]
+   36 root     [kworker/R-rpcio]
+   37 root     [kworker/R-xprti]
+   38 root     [kswapd0]
+   39 root     [kworker/R-nfsio]
+   40 root     [kworker/0:2-dev]
+   41 root     [kworker/0:3-dev]
+   42 root     [kworker/0:4-dev]
+   43 root     [kworker/0:5-dev]
+   44 root     [kworker/0:6-eve]
+   45 root     [kworker/0:7-rcu]
+   46 root     [kworker/0:8]
+   47 root     [kworker/R-gp]
+   48 root     [kworker/R-pp]
+   49 root     [kworker/u9:0]
+   50 root     [kworker/u8:2-pm]
+   51 root     [irq/74-axp22x_i]
+   52 root     [kworker/1:2-rcu]
+   53 root     [kworker/1:3-usb]
+   54 root     [kworker/u8:3-ev]
+   55 root     [card1-crtc0]
+   56 root     [irq/203-sunxi-m]
+   57 root     [irq/204-sunxi-m]
+   58 root     [kworker/u8:4]
+   59 root     [kworker/R-mmc_c]
+   60 root     [kworker/1:1H-kb]
+   61 root     [kworker/0:1H-mm]
+   62 root     [kworker/1:2H-kb]
+   63 root     [jbd2/mmcblk0p1-]
+   64 root     [kworker/R-ext4-]
+   76 root     {rcS} /bin/sh /etc/init.d/rcS
+   77 root     {S00ga36log} /bin/sh /etc/init.d/S00ga36log start
+  103 root     ps
+--- other logs
+--- dmesg
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 7.2.9-dirty (root@d792a8147db4) (arm-linux-gnueabihf-gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #2 SMP PREEMPT Fri Oct 16 18:25:12 UTC 2026
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: GA36-MB A23
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] cma: Reserved 16 MiB at 0x5f000000
+[    0.000000] OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000]   HighMem  empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000] percpu: Embedded 13 pages/cpu s21900 r8192 d23156 u53248
+[    0.000000] pcpu-alloc: s21900 r8192 d23156 u53248 alloc=13*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 
+[    0.000000] Kernel command line: root=/dev/mmcblk0p1 rootfstype=ext4 rootwait rw init=/sbin/init coherent_pool=4m loglevel=8
+[    0.000000] printk: log buffer data + meta data: 131072 + 409600 = 540672 bytes
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 131072
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=2.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.000000] arch_timer: cp15 timer running at 24.00MHz (sec-phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000002] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000018] Switching to timer-based delay loop, resolution 41ns
+[    0.000275] clocksource: timer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
+[    0.000855] Console: colour dummy device 80x30
+[    0.000885] printk: legacy console [tty0] enabled
+[    0.001471] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
+[    0.001519] CPU: Testing write buffer coherency: ok
+[    0.001607] pid_max: default: 32768 minimum: 301
+[    0.001933] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.001990] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.002495] VFS: Finished mounting rootfs on nullfs
+[    0.003444] /cpus/cpu@0 missing clock-frequency property
+[    0.003541] /cpus/cpu@1 missing clock-frequency property
+[    0.003575] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.005861] Setting up static identity map for 0x40100000 - 0x40100060
+[    0.006252] rcu: Hierarchical SRCU implementation.
+[    0.006296] rcu: 	Max phase no-delay instances is 1000.
+[    0.006833] Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+[    0.007688] smp: Bringing up secondary CPUs ...
+[    0.009907] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.010313] smp: Brought up 1 node, 2 CPUs
+[    0.010390] SMP: Total of 2 processors activated (96.00 BogoMIPS).
+[    0.010416] CPU: All CPU(s) started in SVC mode.
+[    0.010750] Memory: 487316K/524288K available (9216K kernel code, 926K rwdata, 2788K rodata, 1024K init, 236K bss, 19220K reserved, 16384K cma-reserved, 0K highmem)
+[    0.011903] devtmpfs: initialized
+[    0.018472] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.018991] posixtimers hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.019132] futex hash table entries: 512 (32768 bytes on 1 NUMA nodes, total 32 KiB, linear).
+[    0.022245] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.026158] DMA: preallocated 4096 KiB pool for atomic coherent allocations
+[    0.027699] thermal_sys: Registered thermal governor 'step_wise'
+[    0.028007] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.028084] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.033268] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/dsi@1ca0000
+[    0.033385] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.033727] /soc/interrupt-controller@1c81000: Fixed dependency cycle(s) with /soc/interrupt-controller@1c81000
+[    0.033810] /soc/display-frontend@1e00000: Fixed dependency cycle(s) with /soc/display-backend@1e60000
+[    0.033892] /soc/display-backend@1e60000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.033936] /soc/display-backend@1e60000: Fixed dependency cycle(s) with /soc/display-frontend@1e00000
+[    0.034012] /soc/drc@1e70000: Fixed dependency cycle(s) with /soc/lcd-controller@1c0c000
+[    0.034062] /soc/drc@1e70000: Fixed dependency cycle(s) with /soc/display-backend@1e60000
+[    0.034258] /soc/dsi@1ca0000: Fixed dependency cycle(s) with /soc/lcd-controller@1c0c000
+[    0.035032] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/dsi@1ca0000
+[    0.035112] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.039900] /soc/display-frontend@1e00000: Fixed dependency cycle(s) with /soc/display-backend@1e60000
+[    0.040425] /soc/display-frontend@1e00000: Fixed dependency cycle(s) with /soc/display-backend@1e60000
+[    0.040590] /soc/display-backend@1e60000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.040635] /soc/display-backend@1e60000: Fixed dependency cycle(s) with /soc/display-frontend@1e00000
+[    0.041065] /soc/display-backend@1e60000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.041195] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.041320] /soc/drc@1e70000: Fixed dependency cycle(s) with /soc/lcd-controller@1c0c000
+[    0.041435] /soc/drc@1e70000: Fixed dependency cycle(s) with /soc/display-backend@1e60000
+[    0.043208] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/dsi@1ca0000
+[    0.043360] /soc/dsi@1ca0000: Fixed dependency cycle(s) with /soc/lcd-controller@1c0c000
+[    0.048747] SCSI subsystem initialized
+[    0.049545] libata version 3.00 loaded.
+[    0.049904] usbcore: registered new interface driver usbfs
+[    0.050052] usbcore: registered new interface driver hub
+[    0.050172] usbcore: registered new device driver usb
+[    0.050564] mc: Linux media interface: v0.10
+[    0.050672] videodev: Linux video capture interface: v2.00
+[    0.050808] pps_core: LinuxPPS API ver. 1 registered
+[    0.050838] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.050888] PTP clock support registered
+[    0.051731] Advanced Linux Sound Architecture Driver Initialized.
+[    0.053862] clocksource: Switched to clocksource arch_sys_counter
+[    0.067081] NET: Registered PF_INET protocol family
+[    0.067485] IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.068954] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+[    0.069046] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.069090] TCP established hash table entries: 4096 (order: 2, 16384 bytes, linear)
+[    0.069161] TCP bind hash table entries: 4096 (order: 4, 65536 bytes, linear)
+[    0.069402] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.069597] UDP hash table entries: 256 (order: 2, 14336 bytes, linear)
+[    0.069915] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.071076] RPC: Registered named UNIX socket transport module.
+[    0.071148] RPC: Registered udp transport module.
+[    0.071171] RPC: Registered tcp transport module.
+[    0.071190] RPC: Registered tcp-with-tls transport module.
+[    0.071210] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.072981] workingset: timestamp_bits=30 (anon: 25) max_order=17 bucket_order=0 (anon: 0)
+[    0.073700] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.074593] NFS: Registering the id_resolver key type
+[    0.074737] Key type id_resolver registered
+[    0.074766] Key type id_legacy registered
+[    0.074801] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.074827] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    0.075364] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 245)
+[    0.075420] io scheduler mq-deadline registered
+[    0.075444] io scheduler kyber registered
+[    0.075501] io scheduler bfq registered
+[    0.167426] Serial: 8250/16550 driver, 8 ports, IRQ sharing disabled
+[    0.189240] lima 1c40000.gpu: gp - mali400 version major 1 minor 1
+[    0.189442] lima 1c40000.gpu: pp0 - mali400 version major 1 minor 1
+[    0.189577] lima 1c40000.gpu: pp1 - mali400 version major 1 minor 1
+[    0.189651] lima 1c40000.gpu: l2_cache0 64K, 4-way, 64byte cache line, 64bit external bus
+[    0.190363] lima 1c40000.gpu: bus rate = 200000000
+[    0.190430] lima 1c40000.gpu: mod rate = 297000000
+[    0.191214] [drm] Initialized lima 1.1.0 for 1c40000.gpu on minor 0
+[    0.201406] loop: module loaded
+[    0.202309] zram: Added device: zram0
+[    0.209273] CAN device driver interface
+[    0.213676] input: 1c22800.lradc as /devices/platform/soc/1c22800.lradc/input/input0
+[    0.217115] sun6i-rtc 1f00000.rtc: registered as rtc0
+[    0.217230] sun6i-rtc 1f00000.rtc: setting system clock to 1970-01-02T04:58:37 UTC (104317)
+[    0.218059] i2c_dev: i2c /dev entries driver
+[    0.221740] sunxi-wdt 1c20ca0.watchdog: Watchdog enabled (timeout=16 sec, nowayout=0)
+[    0.224422] usbcore: registered new interface driver usbhid
+[    0.224488] usbhid: USB HID core driver
+[    0.230469] NET: Registered PF_PACKET protocol family
+[    0.230538] can: controller area network core
+[    0.230647] NET: Registered PF_CAN protocol family
+[    0.230682] can: raw protocol
+[    0.230762] can: broadcast manager protocol
+[    0.230803] can: netlink gateway - max_hops=1
+[    0.230901] Key type dns_resolver registered
+[    0.231172] Registering SWP/SWPB emulation handler
+[    0.260364] gpio gpiochip0: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.263275] sun8i-a23-r-pinctrl 1f02c00.pinctrl: initialized sunXi PIO driver
+[    0.264433] sun8i-a23-r-pinctrl 1f02c00.pinctrl: supply vcc-pl not found, using dummy regulator
+[    0.274585] sun8i-a23-r-pinctrl 1f02c00.pinctrl: supply vcc-pl not found, using dummy regulator
+[    0.275378] sunxi-rsb 1f03400.rsb: RSB running at 3000000 Hz
+[    0.276069] axp20x-rsb sunxi-rsb-3a3: AXP20x variant AXP223 found
+[    0.280688] input: axp20x-pek as /devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp221-pek/input/input1
+[    0.282366] axp20x-adc axp22x-adc: DMA mask not set
+[    0.284131] axp20x-battery-power-supply axp20x-battery-power-supply: DMA mask not set
+[    0.285208] axp20x-battery-power-supply axp20x-battery-power-supply: couldn't set ccc from DT: fallback to min value
+[    0.286960] axp20x-usb-power-supply axp20x-usb-power-supply: DMA mask not set
+[    0.288984] axp20x-rsb sunxi-rsb-3a3: AXP20X driver loaded
+[    0.291671] gpio gpiochip1: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.299173] sun8i-a23-pinctrl 1c20800.pinctrl: initialized sunXi PIO driver
+[    0.325007] 1c28400.serial: ttyS0 at MMIO 0x1c28400 (irq = 200, base_baud = 1500000) is a U6_16550A
+[    0.326109] serial serial0: tty port ttyS0 registered
+[    0.327129] sun8i-a23-pinctrl 1c20800.pinctrl: supply vcc-pe not found, using dummy regulator
+[    0.328527] input: GA36-MB Gamepad as /devices/platform/soc/1c28400.serial/1c28400.serial:0/1c28400.serial:0.0/serial0/serial0-0/input/input2
+[    0.349581] 1c28800.serial: ttyS1 at MMIO 0x1c28800 (irq = 201, base_baud = 1500000) is a U6_16550A
+[    0.349789] printk: legacy console [ttyS1] enabled
+[    0.443904] ga36-gamepad serial0-0: GA36-MB Gamepad Driver Initialized
+[    0.455845] panel-boe-jd9366 1ca0000.dsi.0: Starting probe...
+[    1.490774] panel-boe-jd9366 1ca0000.dsi.0: Read panel-id: 2
+[    1.583914] panel-boe-jd9366 1ca0000.dsi.0: mipi_dsi_attach() failed: -517
+[    1.590894] ------------[ cut here ]------------
+[    1.595610] WARNING: drivers/regulator/core.c:2675 at _regulator_put+0x58/0x5c, CPU#1: kworker/u8:0/12
+[    1.604995] Modules linked in:
+[    1.608081] CPU: 1 UID: 0 PID: 12 Comm: kworker/u8:0 Not tainted 7.2.9-dirty #2 PREEMPT 
+[    1.608098] Hardware name: Allwinner sun8i Family
+[    1.608108] Workqueue: events_unbound deferred_probe_work_func
+[    1.608127] Call trace: 
+[    1.608144]  unwind_backtrace from show_stack+0x10/0x14
+[    1.608169]  show_stack from dump_stack_lvl+0x68/0x74
+[    1.608190]  dump_stack_lvl from __warn+0x90/0x100
+[    1.608209]  __warn from warn_slowpath_fmt+0x1b8/0x1c0
+[    1.608223]  warn_slowpath_fmt from _regulator_put+0x58/0x5c
+[    1.608246]  _regulator_put from regulator_put+0x1c/0x2c
+[    1.608271]  regulator_put from devres_release_all+0x94/0xfc
+[    1.608295]  devres_release_all from device_unbind_cleanup+0x24/0x88
+[    1.608312]  device_unbind_cleanup from really_probe+0x198/0x2c8
+[    1.608330]  really_probe from __driver_probe_device+0x94/0x1c4
+[    1.608348]  __driver_probe_device from driver_probe_device+0x34/0xb8
+[    1.608366]  driver_probe_device from __device_attach_driver+0x94/0xc4
+[    1.608385]  __device_attach_driver from bus_for_each_drv+0x90/0xe4
+[    1.608403]  bus_for_each_drv from __device_attach+0xa8/0x1a4
+[    1.608419]  __device_attach from device_initial_probe+0x3c/0x48
+[    1.608437]  device_initial_probe from bus_probe_device+0x28/0x7c
+[    1.608454]  bus_probe_device from device_add+0x5c8/0x79c
+[    1.608477]  device_add from mipi_dsi_device_register_full+0xcc/0x14c
+[    1.608507]  mipi_dsi_device_register_full from mipi_dsi_host_register+0xc8/0x174
+[    1.608534]  mipi_dsi_host_register from sun6i_dsi_probe+0x14c/0x2a8
+[    1.608556]  sun6i_dsi_probe from platform_probe+0x5c/0x90
+[    1.608576]  platform_probe from really_probe+0xc8/0x2c8
+[    1.608596]  really_probe from __driver_probe_device+0x94/0x1c4
+[    1.608613]  __driver_probe_device from driver_probe_device+0x34/0xb8
+[    1.608631]  driver_probe_device from __device_attach_driver+0x94/0xc4
+[    1.608649]  __device_attach_driver from bus_for_each_drv+0x90/0xe4
+[    1.608666]  bus_for_each_drv from __device_attach+0xa8/0x1a4
+[    1.608682]  __device_attach from device_initial_probe+0x3c/0x48
+[    1.608700]  device_initial_probe from bus_probe_device+0x28/0x7c
+[    1.608716]  bus_probe_device from deferred_probe_work_func+0x80/0xac
+[    1.608733]  deferred_probe_work_func from process_one_work+0x164/0x2ec
+[    1.608754]  process_one_work from worker_thread+0x160/0x2fc
+[    1.608771]  worker_thread from kthread+0x11c/0x140
+[    1.608790]  kthread from ret_from_fork+0x14/0x28
+[    1.608805] Exception stack(0xe0849fb0 to 0xe0849ff8)
+[    1.608816] 9fa0:                                     00000000 00000000 00000000 00000000
+[    1.608827] 9fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    1.608837] 9fe0: 00000000 00000000 00000000 00000000 00000013 00000000
+[    1.608844] ---[ end trace 0000000000000000 ]---
+[    1.863999] sun4i-drm display-engine: bound 1e00000.display-frontend (ops 0xc0a5b5b8)
+[    1.872347] sun4i-drm display-engine: bound 1e60000.display-backend (ops 0xc0a5ad20)
+[    1.880417] sun4i-drm display-engine: bound 1e70000.drc (ops 0xc0a5a850)
+[    1.888117] sun4i-drm display-engine: No panel or bridge found... RGB output disabled
+[    1.896188] sun4i-drm display-engine: bound 1c0c000.lcd-controller (ops 0xc0a594b4)
+[    1.903981] sun4i-drm display-engine: bound 1ca0000.dsi (ops 0xc0a5c628)
+[    1.911774] [drm] Initialized sun4i-drm 1.0.0 for display-engine on minor 1
+[    1.919085] sun4i-drm display-engine: [drm] Cannot find any crtc or sizes
+[    1.926247] sun4i-drm display-engine: [drm] Cannot find any crtc or sizes
+[    1.938095] cpu cpu0: OPP table can't be empty
+[    1.954864] panel-boe-jd9366 1ca0000.dsi.0: Starting probe...
+[    1.960694] panel-boe-jd9366 1ca0000.dsi.0: Read panel-id: 2
+[    1.976513] sunxi-mmc 1c10000.mmc: initialized, max. request size: 16384 KB
+[    1.983606] sunxi-mmc 1c0f000.mmc: initialized, max. request size: 16384 KB
+[    2.071687] mmc0: host does not support reading read-only switch, assuming write-enable
+[    2.073623] mmc0: new high speed SDHC card at address 1388
+[    2.075061] mmcblk0: mmc0:1388 SATC 29.1 GiB
+[    2.079496]  mmcblk0: p1 p2
+[    2.493898] panel-boe-jd9366 1ca0000.dsi.0: mipi_dsi_dcs_exit_sleep_mode() finished: 0
+[    2.493950] panel-boe-jd9366 1ca0000.dsi.0: mipi_dsi_dcs_set_display_on() finished: 0
+[    2.523878] panel-boe-jd9366 1ca0000.dsi.0: jd9366_prepare() SUCCESS.
+[    2.580910] Console: switching to colour frame buffer device 80x30
+[    2.668511] sun4i-drm display-engine: [drm] fb0: sun4i-drmdrmfb frame buffer device
+[    2.679977] sun6i-mipi-dsi 1ca0000.dsi: Attached device jd9366
+[    2.689457] usb_phy_generic usb_phy_generic.1.auto: dummy supplies not allowed for exclusive requests (id=vbus)
+[    2.704704] musb-hdrc musb-hdrc.2.auto: MUSB HDRC host driver
+[    2.712508] musb-hdrc musb-hdrc.2.auto: new USB bus registered, assigned bus number 1
+[    2.724457] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 7.02
+[    2.736784] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.747811] usb usb1: Product: MUSB HDRC host driver
+[    2.754735] usb usb1: Manufacturer: Linux 7.2.9-dirty musb-hcd
+[    2.762531] usb usb1: SerialNumber: musb-hdrc.2.auto
+[    2.770551] hub 1-0:1.0: USB hub found
+[    2.776424] hub 1-0:1.0: 1 port detected
+[    2.788019] clk: Disabling unused clocks
+[    2.788140] ehci-platform 1c1a000.usb: EHCI Host Controller
+[    2.792094] PM: genpd: Disabling unused power domains
+[    2.798185] ohci-platform 1c1a400.usb: Generic Platform OHCI controller
+[    2.803149] ALSA device list:
+[    2.809512] ehci-platform 1c1a000.usb: new USB bus registered, assigned bus number 2
+[    2.812439]   #0: A23 Audio Codec
+[    2.820259] ohci-platform 1c1a400.usb: new USB bus registered, assigned bus number 3
+[    2.850667] ohci-platform 1c1a400.usb: irq 207, io mem 0x01c1a400
+[    2.850847] ehci-platform 1c1a000.usb: irq 206, io mem 0x01c1a000
+[    2.883884] ehci-platform 1c1a000.usb: USB 2.0 started, EHCI 1.00
+[    2.891923] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 7.02
+[    2.904075] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.914848] usb usb2: Product: EHCI Host Controller
+[    2.921492] usb usb2: Manufacturer: Linux 7.2.9-dirty ehci_hcd
+[    2.929186] usb usb2: SerialNumber: 1c1a000.usb
+[    2.936489] hub 2-0:1.0: USB hub found
+[    2.942053] hub 2-0:1.0: 1 port detected
+[    2.948402] usb usb3: New USB device found, idVendor=1d6b, idProduct=0001, bcdDevice= 7.02
+[    2.960313] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.970927] usb usb3: Product: Generic Platform OHCI controller
+[    2.978644] usb usb3: Manufacturer: Linux 7.2.9-dirty ohci_hcd
+[    2.986346] usb usb3: SerialNumber: 1c1a400.usb
+[    2.993629] hub 3-0:1.0: USB hub found
+[    2.999352] hub 3-0:1.0: 1 port detected
+[    3.014987] EXT4-fs (mmcblk0p1): mounted filesystem 144d5484-a2e4-4b8b-b28b-66e94efff23a r/w with ordered data mode. Quota mode: disabled.
+[    3.031439] VFS: Mounted root (ext4 filesystem) on device 179:1.
+[    3.040607] devtmpfs: mounted
+[    3.045619] VFS: Pivoted into new rootfs
+[    3.052928] Freeing unused kernel image (initmem) memory: 1024K
+[    3.060892] Run /sbin/init as init process
+[    3.066776]   with arguments:
+[    3.071438]     /sbin/init
+[    3.075915]   with environment:
+[    3.080708]     HOME=/
+[    3.084767]     TERM=linux
+[    3.221555] FAT-fs (mmcblk0p2): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.

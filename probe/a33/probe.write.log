@@ -1,0 +1,17 @@
+=== write_at 2026-10-16 19:35:13 ===
+Target disk 3: Mass Storage Device | bus USB | 31.28 GB | volumes F:, G:
+Writing probe\a33\probe.egon (8192 bytes) at byte offset 8,192
+
+Type the disk number again to write to disk 3: ERROR: cannot lock G:
+=== write_at 2026-10-16 19:38:24 ===
+Target disk 3: Mass Storage Device | bus USB | 31.28 GB | volumes F:, G:
+Writing probe\a33\probe.egon (8192 bytes) at byte offset 8,192
+
+Type the disk number again to write to disk 3: backed up the old bytes to probe\a33\probe.disk3-at8192.backup.bin
+OK - written and verified.
+=== write_at 2026-10-16 19:51:38 ===
+Target disk 3: Mass Storage Device | bus USB | 31.28 GB | volumes F:, G:
+Writing probe\a33\probe.egon (8192 bytes) at byte offset 8,192
+
+Type the disk number again to write to disk 3: backed up the old bytes to probe\a33\probe.disk3-at8192.20261016-195152.backup.bin
+OK - written and verified.

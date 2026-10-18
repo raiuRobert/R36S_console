@@ -1,0 +1,62 @@
+﻿=== 2026-10-18 02:53:02 install root hook
+disk 3: Mass Storage Device USB 31281119232
+flushed F:
+flushed G:
+mount: Failed to attach disk '\\.\PHYSICALDRIVE3' to WSL2: The system cannot find the drive specified. 
+
+Error code: Wsl/Service/AttachDisk/MountDisk/HCS/ERROR_INVALID_DRIVE
+
+If this error was unexpected, please consider searching for existing issues or filing a new issue at https://github.com/microsoft/WSL/issues.
+
+
+
+not the goodluckOS rootfs: /mnt/wsl/PHYSICALDRIVE3p1
+ls: cannot access '/mnt/wsl/PHYSICALDRIVE3p1': No such file or directory
+
+unmount: Incorrect function. 
+
+Error code: Wsl/ERROR_INVALID_FUNCTION
+
+If this error was unexpected, please consider searching for existing issues or filing a new issue at https://github.com/microsoft/WSL/issues.
+
+
+
+=== done
+=== 2026-10-18 02:53:51 install root hook (usbipd)
+card reader busid 1-14
+flushed F:
+flushed G:
+
+usbipd.exe : usbipd: info: Using WSL distribution 'Ubuntu-24.04' to attach; the device will be available in all WSL 2 
+distributions.
+At D:\dev\R36s_console\tools\install_root_hook.ps1:15 char:7
++ Log ((& $usbipd attach --wsl --busid $busid 2>&1 | Out-String))
++       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (usbipd: info: U... distributions.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+usbipd: info: Detected networking mode 'nat'.
+usbipd: info: Using IP address 172.17.160.1 to reach the host.
+
+card is /dev/sde
+NAME    SIZE FSTYPE LABEL
+sde    29.1G        
+Γö£ΓöÇsde1  384M ext4   linux
+ΓööΓöÇsde2  512M vfat   HOME
+S00ga36log installed, syntax OK
+44:# Root boot hook (bring-up only): if /home/player/ga36_root_hook.sh exists, run it as root in the
+45:# background, output in /home/player/ga36_root_hook.log. Lets fixes be tried by copying one file
+48:if [ -f "$DIR/ga36_root_hook.sh" ]; then
+49:    ( sh "$DIR/ga36_root_hook.sh" > "$DIR/ga36_root_hook.log" 2>&1; sync ) </dev/null >/dev/null 2>&1 &
+unmounted
+
+
+usbipd.exe : usbipd: error: There is no device with busid '1-14'.
+At D:\dev\R36s_console\tools\install_root_hook.ps1:19 char:7
++ Log ((& $usbipd unbind --busid $busid 2>&1 | Out-String))
++       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (usbipd: error: ...h busid '1-14'.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+=== done

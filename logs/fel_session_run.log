@@ -1,0 +1,15 @@
+===== 2026-10-17 15:06:28 fel_session /mnt/d/dev/R36s_console/bootloader/out/u-boot-a23-diag.bin =====
+Using the FEL device that is already attached (FEL_NOW=1).
+AWUSBFEX soc=00001650(A23) 00000001 ver=0001 44 08 scratchpad=00007e00 00000000 00000000
+--- booting U-Boot over FEL
+U-Boot started.
+>>> WATCH THE SCREEN NOW: 5 quick backlight blinks = U-Boot proper is running <<<
+Waiting up to 45 s for it to return to FEL by itself ...
+U-Boot did not return to FEL (it hung or crashed).
+
+##########################################################
+##  Press RST on the console now, so the RAM log can be read back
+##########################################################
+FEL ready (USB device 019).
+AWUSBFEX soc=00001650(A23) 00000001 ver=0001 44 08 scratchpad=00007e00 00000000 00000000
+log magic=e3099a8f length=1606724663

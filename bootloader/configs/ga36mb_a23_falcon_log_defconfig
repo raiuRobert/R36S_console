@@ -1,0 +1,42 @@
+CONFIG_ARM=y
+CONFIG_ARCH_SUNXI=y
+CONFIG_DEFAULT_DEVICE_TREE="sun8i-a23-ga36mb"
+CONFIG_SPL=y
+# The GA36-MB here reports soc=1650 (A23) over FEL; DRAM settings from the q8 A23 tablet
+# (a FEL DRAM test with these passed on this board)
+CONFIG_MACH_SUN8I_A23=y
+CONFIG_DRAM_CLK=432
+CONFIG_DRAM_ZQ=63306
+CONFIG_DRAM_ODT_EN=y
+# Debug UART2 on PB0/PB1 = the TX/RX pads next to the SoC
+CONFIG_CONS_INDEX=3
+# AXP223 rails as set by the stock [power_sply] section of the (A33) script.bin
+CONFIG_AXP_DCDC1_VOLT=3300
+CONFIG_AXP_DCDC5_VOLT=1500
+CONFIG_AXP_ALDO2_VOLT=2500
+CONFIG_AXP_ALDO3_VOLT=3000
+CONFIG_CMD_GPIO=y
+CONFIG_CMD_SLEEP=y
+CONFIG_FAT_WRITE=y
+CONFIG_BOOTDELAY=0
+# Falcon mode (build_uboot.sh a23_falcon_log): the SPL boots Linux directly, without U-Boot proper.
+# Kernel = legacy uImage (zImage + its appended DTB, load/entry 0x42000000) at sector 0x2000
+# (4 MiB, free space before the goodluckOS partitions); "args" = a copy of the DTB at sector
+# 0x1000 (2 MiB), loaded to 0x43000000 and passed in r2 (the appended DTB takes precedence).
+# The kernel starts in secure SVC mode, as with the stock Allwinner bootloader. If there is no
+# valid uImage, the SPL falls back to U-Boot proper (the log build below).
+CONFIG_SPL_OS_BOOT=y
+CONFIG_SPL_FALCON_BOOT_MMCSD=y
+CONFIG_SYS_MMCSD_RAW_MODE_KERNEL_SECTOR=0x2000
+CONFIG_SPL_OS_BOOT_ARGS=y
+CONFIG_SYS_MMCSD_RAW_MODE_ARGS_SECTOR=0x1000
+CONFIG_SYS_MMCSD_RAW_MODE_ARGS_SECTORS=0x40
+CONFIG_SPL_PAYLOAD_ARGS_ADDR=0x43000000
+# Log build (build_uboot.sh a23_log): quiet SPL (backlight solid on, no blink codes) and the
+# console log in DRAM (ga36_ramlog.c), which the boot script saves as ga36_uboot.log on the
+# card's FAT partition (goodluckOS HOME = partition 2) before and after loading the kernel.
+# Then it boots the goodluckOS kernel (Android boot image at sector 0x2a000, zImage at 0x2a004,
+# with its own appended DTB) in secure mode, as the stock Allwinner U-Boot does.
+# If bootz returns: log saved again, then backlight 3 s on / 1 s off forever.
+CONFIG_USE_BOOTCOMMAND=y
+CONFIG_BOOTCOMMAND="gpio set PH0; echo; echo '=== GA36-MB mainline U-Boot, log build ==='; setenv savelog 'ramlog; fatwrite mmc 0:2 ${ramlog_addr} ga36_uboot.log ${ramlog_size}'; version; bdinfo; mmc dev 0; mmc info; part list mmc 0; fatls mmc 0:2; run savelog; echo '--- loading the goodluckOS kernel from sector 0x2a004'; if mmc read ${kernel_addr_r} 0x2a004 0x4000; then echo 'kernel read OK'; else echo 'kernel read FAILED'; fi; md.l ${kernel_addr_r} 0x10; setexpr zmagic ${kernel_addr_r} + 0x24; if itest.l *${zmagic} == 0x016f2818; then echo 'zImage magic OK'; else echo 'zImage magic WRONG'; fi; setenv bootm_boot_mode sec; echo '--- bootz (secure mode, the kernel uses its appended DTB)'; run savelog; bootz ${kernel_addr_r} - ${fdtcontroladdr}; echo '--- bootz FAILED (returned)'; run savelog; while true; do gpio set PH0; sleep 3; gpio clear PH0; sleep 1; done"

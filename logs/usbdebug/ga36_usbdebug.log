@@ -1,0 +1,81 @@
+=== usb debug start, uptime 6.06, udc /sys/class/udc/musb-hdrc.2.auto
+/sys/class/power_supply/axp20x-usb/health=Good
+/sys/class/power_supply/axp20x-usb/input_current_limit=900000
+/sys/class/power_supply/axp20x-usb/online=1
+/sys/class/power_supply/axp20x-usb/present=1
+/sys/class/power_supply/axp20x-usb/type=USB
+/sys/class/power_supply/axp20x-usb/uevent=DEVTYPE=power_supply
+OF_NAME=usb-power
+OF_FULLNAME=/soc/rsb@1f03400/pmic@3a3/usb-power
+OF_COMPATIBLE_0=x-powers,axp223-usb-power-supply
+OF_COMPATIBLE_N=1
+POWER_SUPPLY_NAME=axp20x-usb
+POWER_SUPPLY_TYPE=USB
+POWER_SUPPLY_HEALTH=Good
+POWER_SUPPLY_PRESENT=1
+POWER_SUPPLY_ONLINE=1
+POWER_SUPPLY_VOLTAGE_MIN=4400000
+POWER_SUPPLY_INPUT_CURRENT_LIMIT=900000
+POWER_SUPPLY_TYPE=USB
+/sys/class/power_supply/axp20x-usb/voltage_min=4400000
+/sys/class/power_supply/axp20x-usb/waiting_for_supplier=0
+/sys/class/power_supply/axp20x-battery/status=Charging
+/sys/class/power_supply/axp20x-battery/current_now=2000
+/sys/class/power_supply/axp20x-battery/voltage_now=4158000
+/sys/class/power_supply/axp20x-battery/constant_charge_current=300000
+/sys/class/power_supply/axp20x-battery/constant_charge_current_max=300000
+  74:          0          0  sun6i-r-intc      32 Level     axp22x_irq_chip
+  80:          0          0  axp22x_irq_chip    5 Edge      axp20x-usb-power-supply
+  81:          0          0  axp22x_irq_chip    6 Edge      axp20x-usb-power-supply
+  97:          0          0  axp22x_irq_chip   22 Edge      axp20x-pek-dbf
+  98:          0          0  axp22x_irq_chip   23 Edge      axp20x-pek-dbr
+ 205:         78          0  GIC-0  103 Level     musb-hdrc.2.auto
+ 206:          0          0  GIC-0  104 Level     ehci_hcd:usb2
+ 207:          0          0  GIC-0  105 Level     ohci_hcd:usb1
+6.29 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+6.56 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+6.84 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+8.72 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+8.73 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=1000 bat_uV=4158000 irq=205: 265
+9.08 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+10.68 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+10.95 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+11.49 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=2000 bat_uV=4158000 irq=205: 388
+14.23 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=1000 bat_uV=4158000 irq=205: 503
+14.85 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+15.12 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+16.99 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=2000 bat_uV=4158000 irq=205: 742
+18.93 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+19.21 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+19.74 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=2000 bat_uV=4158000 irq=205: 856
+20.89 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+21.17 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+22.50 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=3000 bat_uV=4158000 irq=205: 971
+25.24 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=1000 bat_uV=4158000 irq=205: 1008
+27.97 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=1000 bat_uV=4158000 irq=205: 1095
+29.12 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+29.39 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+30.72 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=1000 bat_uV=4158000 irq=205: 1219
+33.46 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=1000 bat_uV=4158000 irq=205: 1371
+36.19 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=2000 bat_uV=4158000 irq=205: 1371
+37.34 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+37.61 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+38.94 status vbus_uV= vbus_uA= ilim=900000 bat=Discharging bat_uA=-2000 bat_uV=4158000 irq=205: 1449
+39.29 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+39.57 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+41.70 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=2000 bat_uV=4158000 irq=205: 1608
+43.38 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+43.65 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+44.45 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=1000 bat_uV=4158000 irq=205: 1685
+47.19 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=2000 bat_uV=4158000 irq=205: 1797
+47.54 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+47.81 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+49.68 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+49.95 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+49.96 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=2000 bat_uV=4158000 irq=205: 2027
+51.63 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+51.90 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+52.71 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=2000 bat_uV=4158000 irq=205: 2151
+55.44 status vbus_uV= vbus_uA= ilim=900000 bat=Charging bat_uA=3000 bat_uV=4158000 irq=205: 2294
+55.80 CHANGE udc=default speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=
+56.07 CHANGE udc=configured speed=high-speed vbus_online=1 vbus_present=1 umtprd=180 getty_gs0=

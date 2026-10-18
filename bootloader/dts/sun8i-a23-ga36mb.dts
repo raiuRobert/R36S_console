@@ -1,0 +1,67 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * GA36-MB V1.1 R36S clone with an Allwinner A23 (chip marked "RK3326", reports soc=1650 over FEL).
+ * Minimal U-Boot description: the Q8 A23 reference design, plus the OTG port enabled in device
+ * mode so U-Boot can offer a USB serial console (ACM) and USB mass storage (ums) on the USB-C
+ * "OTG" connector.
+ */
+/dts-v1/;
+#include "sun8i-a23.dtsi"
+#include "sun8i-q8-common.dtsi"
+
+/ {
+	model = "GA36-MB (A23)";
+	compatible = "ga36mb,ga36mb-a23", "allwinner,sun8i-a23";
+
+	/*
+	 * The Q8 reference uses r_uart as console, but r_uart is clocked via the old-style
+	 * apb0_gates node, which U-Boot's sunxi clock driver doesn't handle: the console probe
+	 * fails and U-Boot proper stops before printing anything. Use UART2 on PB0/PB1 instead,
+	 * which is this board's debug port (TX/RX pads) and is clocked by the main CCU.
+	 */
+	aliases {
+		serial0 = &uart2;
+	};
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+	};
+};
+
+&pio {
+	uart2_pb_pins: uart2-pb-pins {
+		pins = "PB0", "PB1";
+		function = "uart2";
+	};
+};
+
+&uart2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart2_pb_pins>;
+	status = "okay";
+};
+
+&r_uart {
+	status = "disabled";
+};
+
+/* sun8i-q8-common.dtsi's panel node links to tcon0_out_lcd, which each board must provide.
+ * U-Boot has no driver for the real (MIPI-DSI) panel, so this just satisfies the reference. */
+&panel {
+	compatible = "bananapi,s070wv20-ct16";
+};
+
+&tcon0_out {
+	tcon0_out_lcd: endpoint {
+		remote-endpoint = <&panel_input>;
+	};
+};
+
+&usb_otg {
+	dr_mode = "peripheral";
+	status = "okay";
+};
+
+&usbphy {
+	status = "okay";
+};

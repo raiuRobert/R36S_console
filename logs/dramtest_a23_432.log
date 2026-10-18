@@ -1,0 +1,15 @@
+AWUSBFEX soc=00001650(A23) 00000001 ver=0001 44 08 scratchpad=00007e00 00000000 00000000
+--- running SPL only (DRAM init) from /mnt/d/dev/R36s_console/bootloader/out/u-boot-a23-diag.bin
+found DT name in SPL header: sun8i-a23-ga36mb
+=> Executing the SPL... done.
+Writing image "U-Boot 2026.10-dirty for sunxi b", 539416 bytes @ 0x4A000000.
+AWUSBFEX soc=00001650(A23) 00000001 ver=0001 44 08 scratchpad=00007e00 00000000 00000000
+0x40000000: OK
+0x42000000: OK
+0x48000000: OK
+0x4a000000: OK
+0x4f000000: OK
+0x50000000: OK
+0x58000000: OK
+0x5ff00000: OK
+DRAM test done, failures: 0

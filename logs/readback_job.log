@@ -1,0 +1,4 @@
+FEL ready after ~8s
+AWUSBFEX soc=00001650(A23) 00000001 ver=0001 44 08 scratchpad=00007e00 00000000 00000000
+log magic=e3099acf length=1606724663
+No log header in SRAM: U-Boot proper never printed anything (or SRAM was cleared).

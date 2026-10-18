@@ -1,0 +1,456 @@
+===== GA36 boot log 2: 20 s after rcS start, uptime 23.39 s
+Linux version 7.2.9-dirty (root@d792a8147db4) (arm-linux-gnueabihf-gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #2 SMP PREEMPT Fri Oct 16 18:25:12 UTC 2026
+root=/dev/mmcblk0p1 rootfstype=ext4 rootwait rw init=/sbin/init coherent_pool=4m loglevel=8
+--- cpuinfo
+processor	: 0
+model name	: ARMv7 Processor rev 5 (v7l)
+processor	: 1
+model name	: ARMv7 Processor rev 5 (v7l)
+Hardware	: Allwinner sun8i Family
+Revision	: 0000
+--- meminfo
+MemTotal:         506092 kB
+MemFree:          394612 kB
+MemAvailable:     431208 kB
+--- mounts
+/dev/root / ext4 rw,relatime 0 0
+devtmpfs /dev devtmpfs rw,relatime,size=244340k,nr_inodes=61085,mode=755 0 0
+proc /proc proc rw,relatime 0 0
+/dev/mmcblk0p2 /home/player vfat rw,relatime,uid=1000,gid=1000,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro 0 0
+devpts /dev/pts devpts rw,relatime,gid=5,mode=620,ptmxmode=666 0 0
+tmpfs /dev/shm tmpfs rw,relatime 0 0
+tmpfs /tmp tmpfs rw,noatime,size=65536k 0 0
+sysfs /sys sysfs rw,relatime 0 0
+tmpfs /run tmpfs rw,nosuid,nodev,relatime,size=4096k,mode=755 0 0
+none /sys/fs/cgroup cgroup2 rw,relatime 0 0
+none /sys/kernel/config configfs rw,relatime 0 0
+mtp /dev/ffs-mtp functionfs rw,relatime 0 0
+--- partitions
+major minor  #blocks  name
+
+ 254        0     262144 zram0
+ 179        0   30547968 mmcblk0
+ 179        1     393216 mmcblk0p1
+ 179        2     524288 mmcblk0p2
+--- drm connectors
+/sys/class/drm/card1-DSI-1: connected enabled 640x480
+--- framebuffers
+0 sun4i-drmdrmfb
+crw-rw----    1 root     video      29,   0 Jan  2 00:32 /dev/fb0
+
+/dev/dri:
+total 0
+drwxr-xr-x    2 root     root           100 Jan  2 00:32 by-path
+crw-rw----    1 root     video     226,   0 Jan  2 00:32 card0
+crw-rw----    1 root     video     226,   1 Jan  2 00:32 card1
+crw-rw-rw-    1 root     video     226, 128 Jan  2 00:32 renderD128
+--- backlight
+/sys/class/backlight/backlight: 5/10
+--- input devices
+I: Bus=0019 Vendor=0001 Product=0001 Version=0100
+N: Name="1c22800.lradc"
+P: Phys=sun4i_lradc/input0
+S: Sysfs=/devices/platform/soc/1c22800.lradc/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=3
+B: KEY=c0000 0 0 0
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="axp20x-pek"
+P: Phys=m1kbd/input2
+S: Sysfs=/devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp221-pek/input/input1
+U: Uniq=
+H: Handlers=kbd event1 
+B: PROP=0
+B: EV=3
+B: KEY=100000 0 0 0
+
+I: Bus=0019 Vendor=0000 Product=0000 Version=0000
+N: Name="GA36-MB Gamepad"
+P: Phys=
+S: Sysfs=/devices/platform/soc/1c28400.serial/1c28400.serial:0/1c28400.serial:0.0/serial0/serial0-0/input/input2
+U: Uniq=
+H: Handlers=js0 event2 
+B: PROP=0
+B: EV=b
+B: KEY=f 0 0 0 0 0 0 0 7fdb0000 0 0 0 0 0 0 0 0 0
+B: ABS=1b
+
+--- usb
+/sys/class/udc/*: 
+--- power
+/sys/class/power_supply/axp20x-battery: online=1 capacity=100 uV=4160200
+/sys/class/power_supply/axp20x-usb: online=1 capacity= uV=
+--- processes
+PID   USER     COMMAND
+    1 root     init
+    2 root     [kthreadd]
+    3 root     [pool_workqueue_]
+    4 root     [kworker/R-rcu_g]
+    5 root     [kworker/R-sync_]
+    6 root     [kworker/R-kvfre]
+    7 root     [kworker/R-slub_]
+    8 root     [kworker/R-netns]
+    9 root     [kworker/0:0-eve]
+   10 root     [kworker/0:1-dev]
+   11 root     [kworker/0:0H-kb]
+   12 root     [kworker/u8:0-pm]
+   13 root     [kworker/R-mm_pe]
+   14 root     [ksoftirqd/0]
+   15 root     [rcu_preempt]
+   16 root     [rcu_exp_par_gp_]
+   17 root     [rcu_exp_gp_kthr]
+   18 root     [migration/0]
+   19 root     [cpuhp/0]
+   20 root     [cpuhp/1]
+   21 root     [migration/1]
+   22 root     [ksoftirqd/1]
+   23 root     [kworker/1:0-dev]
+   24 root     [kworker/1:0H-kb]
+   25 root     [kdevtmpfs]
+   26 root     [kworker/R-inet_]
+   27 root     [oom_reaper]
+   28 root     [kworker/R-write]
+   29 root     [kcompactd0]
+   30 root     [kworker/R-kbloc]
+   31 root     [kworker/u8:1-tt]
+   32 root     [kworker/R-ata_s]
+   33 root     [kworker/R-devfr]
+   34 root     [watchdogd]
+   35 root     [kworker/1:1-dev]
+   36 root     [kworker/R-rpcio]
+   37 root     [kworker/R-xprti]
+   38 root     [kswapd0]
+   39 root     [kworker/R-nfsio]
+   40 root     [kworker/1:2-rcu]
+   41 root     [kworker/1:3-dev]
+   42 root     [kworker/1:4-eve]
+   43 root     [kworker/1:5-eve]
+   44 root     [kworker/1:6-rcu]
+   45 root     [kworker/1:7]
+   46 root     [kworker/R-gp]
+   47 root     [kworker/R-pp]
+   48 root     [kworker/u9:0]
+   49 root     [kworker/u8:2-as]
+   50 root     [irq/74-axp22x_i]
+   51 root     [kworker/0:2-rcu]
+   52 root     [kworker/0:3-eve]
+   53 root     [kworker/u8:3-tt]
+   54 root     [card1-crtc0]
+   55 root     [irq/203-sunxi-m]
+   56 root     [irq/204-sunxi-m]
+   57 root     [kworker/u8:4]
+   58 root     [kworker/u8:5-tt]
+   59 root     [kworker/R-mmc_c]
+   60 root     [kworker/0:1H-mm]
+   61 root     [kworker/1:1H-kb]
+   62 root     [kworker/1:2H-kb]
+   63 root     [jbd2/mmcblk0p1-]
+   64 root     [kworker/R-ext4-]
+  103 root     {S00ga36log} /bin/sh /etc/init.d/S00ga36log start
+  114 root     /sbin/syslogd -n
+  118 root     /sbin/klogd -n
+  133 root     /sbin/udevd
+  135 root     [kworker/0:2H]
+  167 dbus     /usr/bin/dbus-daemon --system --syslog
+  198 root     /usr/sbin/crond -f
+  207 root     {appctl} /bin/sh /usr/local/bin/appctl daemon
+  212 root     /usr/sbin/thd --daemon --triggers /etc/triggerhappy/triggers.d --socket /var/run/thd.socket --pidfile /var/run/thd.pid /dev/input/event0 /dev/input/event1 /dev/input/event2
+  213 root     /sbin/getty -L console 0 vt100
+  214 root     /sbin/getty -L ttyGS0 115200 vt100
+  229 root     {appctl} /bin/sh /usr/local/bin/appctl daemon
+  230 player   -sh -c glos-setup && rm /home/player/autolaunch
+  232 player   glos-setup
+  255 root     ps
+--- other logs
+## /tmp/usb-gadget.log
+sh: write error: No such device
+bind failed: serial only
+## /var/log/resize-home.log
+-- resize-home: Fri Jan  2 00:32:46 UTC 1970 --
+no request flag at /etc/player-flags/.home_resize_requested - nothing to do
+## /dev/shm/application/application.log
+--- dmesg
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 7.2.9-dirty (root@d792a8147db4) (arm-linux-gnueabihf-gcc (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #2 SMP PREEMPT Fri Oct 16 18:25:12 UTC 2026
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: GA36-MB A23
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] cma: Reserved 16 MiB at 0x5f000000
+[    0.000000] OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000]   HighMem  empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000] percpu: Embedded 13 pages/cpu s21900 r8192 d23156 u53248
+[    0.000000] pcpu-alloc: s21900 r8192 d23156 u53248 alloc=13*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 
+[    0.000000] Kernel command line: root=/dev/mmcblk0p1 rootfstype=ext4 rootwait rw init=/sbin/init coherent_pool=4m loglevel=8
+[    0.000000] printk: log buffer data + meta data: 131072 + 409600 = 540672 bytes
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 131072
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=8 to nr_cpu_ids=2.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.000000] arch_timer: cp15 timer running at 24.00MHz (sec-phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000002] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000018] Switching to timer-based delay loop, resolution 41ns
+[    0.000277] clocksource: timer: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 79635851949 ns
+[    0.000854] Console: colour dummy device 80x30
+[    0.000884] printk: legacy console [tty0] enabled
+[    0.001472] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=240000)
+[    0.001521] CPU: Testing write buffer coherency: ok
+[    0.001604] pid_max: default: 32768 minimum: 301
+[    0.001936] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.001991] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.002495] VFS: Finished mounting rootfs on nullfs
+[    0.003442] /cpus/cpu@0 missing clock-frequency property
+[    0.003541] /cpus/cpu@1 missing clock-frequency property
+[    0.003573] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.005891] Setting up static identity map for 0x40100000 - 0x40100060
+[    0.006271] rcu: Hierarchical SRCU implementation.
+[    0.006314] rcu: 	Max phase no-delay instances is 1000.
+[    0.006842] Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+[    0.007684] smp: Bringing up secondary CPUs ...
+[    0.009886] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.010312] smp: Brought up 1 node, 2 CPUs
+[    0.010389] SMP: Total of 2 processors activated (96.00 BogoMIPS).
+[    0.010416] CPU: All CPU(s) started in SVC mode.
+[    0.010751] Memory: 487316K/524288K available (9216K kernel code, 926K rwdata, 2788K rodata, 1024K init, 236K bss, 19220K reserved, 16384K cma-reserved, 0K highmem)
+[    0.011905] devtmpfs: initialized
+[    0.018491] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.019016] posixtimers hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.019161] futex hash table entries: 512 (32768 bytes on 1 NUMA nodes, total 32 KiB, linear).
+[    0.022247] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.026167] DMA: preallocated 4096 KiB pool for atomic coherent allocations
+[    0.027696] thermal_sys: Registered thermal governor 'step_wise'
+[    0.028015] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.028095] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.033289] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/dsi@1ca0000
+[    0.033404] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.033747] /soc/interrupt-controller@1c81000: Fixed dependency cycle(s) with /soc/interrupt-controller@1c81000
+[    0.033833] /soc/display-frontend@1e00000: Fixed dependency cycle(s) with /soc/display-backend@1e60000
+[    0.033914] /soc/display-backend@1e60000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.033958] /soc/display-backend@1e60000: Fixed dependency cycle(s) with /soc/display-frontend@1e00000
+[    0.034033] /soc/drc@1e70000: Fixed dependency cycle(s) with /soc/lcd-controller@1c0c000
+[    0.034083] /soc/drc@1e70000: Fixed dependency cycle(s) with /soc/display-backend@1e60000
+[    0.034280] /soc/dsi@1ca0000: Fixed dependency cycle(s) with /soc/lcd-controller@1c0c000
+[    0.035055] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/dsi@1ca0000
+[    0.035139] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.039915] /soc/display-frontend@1e00000: Fixed dependency cycle(s) with /soc/display-backend@1e60000
+[    0.040444] /soc/display-frontend@1e00000: Fixed dependency cycle(s) with /soc/display-backend@1e60000
+[    0.040609] /soc/display-backend@1e60000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.040655] /soc/display-backend@1e60000: Fixed dependency cycle(s) with /soc/display-frontend@1e00000
+[    0.041085] /soc/display-backend@1e60000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.041218] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/drc@1e70000
+[    0.041344] /soc/drc@1e70000: Fixed dependency cycle(s) with /soc/lcd-controller@1c0c000
+[    0.041459] /soc/drc@1e70000: Fixed dependency cycle(s) with /soc/display-backend@1e60000
+[    0.043239] /soc/lcd-controller@1c0c000: Fixed dependency cycle(s) with /soc/dsi@1ca0000
+[    0.043393] /soc/dsi@1ca0000: Fixed dependency cycle(s) with /soc/lcd-controller@1c0c000
+[    0.048772] SCSI subsystem initialized
+[    0.049590] libata version 3.00 loaded.
+[    0.049961] usbcore: registered new interface driver usbfs
+[    0.050116] usbcore: registered new interface driver hub
+[    0.050234] usbcore: registered new device driver usb
+[    0.050619] mc: Linux media interface: v0.10
+[    0.050731] videodev: Linux video capture interface: v2.00
+[    0.050864] pps_core: LinuxPPS API ver. 1 registered
+[    0.050889] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.050937] PTP clock support registered
+[    0.051785] Advanced Linux Sound Architecture Driver Initialized.
+[    0.053931] clocksource: Switched to clocksource arch_sys_counter
+[    0.067163] NET: Registered PF_INET protocol family
+[    0.067561] IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.069034] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+[    0.069129] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.069171] TCP established hash table entries: 4096 (order: 2, 16384 bytes, linear)
+[    0.069244] TCP bind hash table entries: 4096 (order: 4, 65536 bytes, linear)
+[    0.069492] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.069687] UDP hash table entries: 256 (order: 2, 14336 bytes, linear)
+[    0.069998] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.071145] RPC: Registered named UNIX socket transport module.
+[    0.071218] RPC: Registered udp transport module.
+[    0.071240] RPC: Registered tcp transport module.
+[    0.071259] RPC: Registered tcp-with-tls transport module.
+[    0.071278] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.073059] workingset: timestamp_bits=30 (anon: 25) max_order=17 bucket_order=0 (anon: 0)
+[    0.073786] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.074695] NFS: Registering the id_resolver key type
+[    0.074817] Key type id_resolver registered
+[    0.074845] Key type id_legacy registered
+[    0.074877] nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+[    0.074905] nfs4flexfilelayout_init: NFSv4 Flexfile Layout Driver Registering...
+[    0.075450] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 245)
+[    0.075503] io scheduler mq-deadline registered
+[    0.075526] io scheduler kyber registered
+[    0.075581] io scheduler bfq registered
+[    0.166424] Serial: 8250/16550 driver, 8 ports, IRQ sharing disabled
+[    0.188427] lima 1c40000.gpu: gp - mali400 version major 1 minor 1
+[    0.188632] lima 1c40000.gpu: pp0 - mali400 version major 1 minor 1
+[    0.188803] lima 1c40000.gpu: pp1 - mali400 version major 1 minor 1
+[    0.188883] lima 1c40000.gpu: l2_cache0 64K, 4-way, 64byte cache line, 64bit external bus
+[    0.189606] lima 1c40000.gpu: bus rate = 200000000
+[    0.189677] lima 1c40000.gpu: mod rate = 297000000
+[    0.190453] [drm] Initialized lima 1.1.0 for 1c40000.gpu on minor 0
+[    0.201128] loop: module loaded
+[    0.201938] zram: Added device: zram0
+[    0.208930] CAN device driver interface
+[    0.213344] input: 1c22800.lradc as /devices/platform/soc/1c22800.lradc/input/input0
+[    0.216796] sun6i-rtc 1f00000.rtc: registered as rtc0
+[    0.216912] sun6i-rtc 1f00000.rtc: setting system clock to 1970-01-02T00:32:43 UTC (88363)
+[    0.217749] i2c_dev: i2c /dev entries driver
+[    0.221411] sunxi-wdt 1c20ca0.watchdog: Watchdog enabled (timeout=16 sec, nowayout=0)
+[    0.223839] usbcore: registered new interface driver usbhid
+[    0.223981] usbhid: USB HID core driver
+[    0.229878] NET: Registered PF_PACKET protocol family
+[    0.229947] can: controller area network core
+[    0.230043] NET: Registered PF_CAN protocol family
+[    0.230077] can: raw protocol
+[    0.230175] can: broadcast manager protocol
+[    0.230225] can: netlink gateway - max_hops=1
+[    0.230314] Key type dns_resolver registered
+[    0.230582] Registering SWP/SWPB emulation handler
+[    0.259741] gpio gpiochip0: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.262471] sun8i-a23-r-pinctrl 1f02c00.pinctrl: initialized sunXi PIO driver
+[    0.263580] sun8i-a23-r-pinctrl 1f02c00.pinctrl: supply vcc-pl not found, using dummy regulator
+[    0.273626] sun8i-a23-r-pinctrl 1f02c00.pinctrl: supply vcc-pl not found, using dummy regulator
+[    0.274488] sunxi-rsb 1f03400.rsb: RSB running at 3000000 Hz
+[    0.275092] axp20x-rsb sunxi-rsb-3a3: AXP20x variant AXP223 found
+[    0.279873] input: axp20x-pek as /devices/platform/soc/1f03400.rsb/sunxi-rsb-3a3/axp221-pek/input/input1
+[    0.281527] axp20x-adc axp22x-adc: DMA mask not set
+[    0.283151] axp20x-battery-power-supply axp20x-battery-power-supply: DMA mask not set
+[    0.284305] axp20x-battery-power-supply axp20x-battery-power-supply: couldn't set ccc from DT: fallback to min value
+[    0.286287] axp20x-usb-power-supply axp20x-usb-power-supply: DMA mask not set
+[    0.288321] axp20x-rsb sunxi-rsb-3a3: AXP20X driver loaded
+[    0.291043] gpio gpiochip1: Static allocation of GPIO base is deprecated, use dynamic allocation.
+[    0.295520] vcc-dldo3: Bringing 700000uV into 3000000-3000000uV
+[    0.298857] sun8i-a23-pinctrl 1c20800.pinctrl: initialized sunXi PIO driver
+[    0.325487] 1c28400.serial: ttyS0 at MMIO 0x1c28400 (irq = 200, base_baud = 1500000) is a U6_16550A
+[    0.325972] serial serial0: tty port ttyS0 registered
+[    0.326971] sun8i-a23-pinctrl 1c20800.pinctrl: supply vcc-pe not found, using dummy regulator
+[    0.328345] input: GA36-MB Gamepad as /devices/platform/soc/1c28400.serial/1c28400.serial:0/1c28400.serial:0.0/serial0/serial0-0/input/input2
+[    0.349125] 1c28800.serial: ttyS1 at MMIO 0x1c28800 (irq = 201, base_baud = 1500000) is a U6_16550A
+[    0.349326] printk: legacy console [ttyS1] enabled
+[    0.443949] ga36-gamepad serial0-0: GA36-MB Gamepad Driver Initialized
+[    0.454463] panel-boe-jd9366 1ca0000.dsi.0: Starting probe...
+[    1.496616] panel-boe-jd9366 1ca0000.dsi.0: Read panel-id: 1
+[    1.574006] panel-boe-jd9366 1ca0000.dsi.0: mipi_dsi_attach() failed: -517
+[    1.580979] ------------[ cut here ]------------
+[    1.585663] WARNING: drivers/regulator/core.c:2675 at _regulator_put+0x58/0x5c, CPU#0: kworker/u8:0/12
+[    1.595067] Modules linked in:
+[    1.598153] CPU: 0 UID: 0 PID: 12 Comm: kworker/u8:0 Not tainted 7.2.9-dirty #2 PREEMPT 
+[    1.598169] Hardware name: Allwinner sun8i Family
+[    1.598179] Workqueue: events_unbound deferred_probe_work_func
+[    1.598199] Call trace: 
+[    1.598215]  unwind_backtrace from show_stack+0x10/0x14
+[    1.598241]  show_stack from dump_stack_lvl+0x68/0x74
+[    1.598261]  dump_stack_lvl from __warn+0x90/0x100
+[    1.598280]  __warn from warn_slowpath_fmt+0x1b8/0x1c0
+[    1.598294]  warn_slowpath_fmt from _regulator_put+0x58/0x5c
+[    1.598318]  _regulator_put from regulator_put+0x1c/0x2c
+[    1.598343]  regulator_put from devres_release_all+0x94/0xfc
+[    1.598367]  devres_release_all from device_unbind_cleanup+0x24/0x88
+[    1.598385]  device_unbind_cleanup from really_probe+0x198/0x2c8
+[    1.598403]  really_probe from __driver_probe_device+0x94/0x1c4
+[    1.598421]  __driver_probe_device from driver_probe_device+0x34/0xb8
+[    1.598439]  driver_probe_device from __device_attach_driver+0x94/0xc4
+[    1.598457]  __device_attach_driver from bus_for_each_drv+0x90/0xe4
+[    1.598475]  bus_for_each_drv from __device_attach+0xa8/0x1a4
+[    1.598492]  __device_attach from device_initial_probe+0x3c/0x48
+[    1.598510]  device_initial_probe from bus_probe_device+0x28/0x7c
+[    1.598527]  bus_probe_device from device_add+0x5c8/0x79c
+[    1.598549]  device_add from mipi_dsi_device_register_full+0xcc/0x14c
+[    1.598580]  mipi_dsi_device_register_full from mipi_dsi_host_register+0xc8/0x174
+[    1.598606]  mipi_dsi_host_register from sun6i_dsi_probe+0x14c/0x2a8
+[    1.598629]  sun6i_dsi_probe from platform_probe+0x5c/0x90
+[    1.598649]  platform_probe from really_probe+0xc8/0x2c8
+[    1.598669]  really_probe from __driver_probe_device+0x94/0x1c4
+[    1.598686]  __driver_probe_device from driver_probe_device+0x34/0xb8
+[    1.598705]  driver_probe_device from __device_attach_driver+0x94/0xc4
+[    1.598722]  __device_attach_driver from bus_for_each_drv+0x90/0xe4
+[    1.598739]  bus_for_each_drv from __device_attach+0xa8/0x1a4
+[    1.598755]  __device_attach from device_initial_probe+0x3c/0x48
+[    1.598773]  device_initial_probe from bus_probe_device+0x28/0x7c
+[    1.598790]  bus_probe_device from deferred_probe_work_func+0x80/0xac
+[    1.598806]  deferred_probe_work_func from process_one_work+0x164/0x2ec
+[    1.598827]  process_one_work from worker_thread+0x160/0x2fc
+[    1.598844]  worker_thread from kthread+0x11c/0x140
+[    1.598862]  kthread from ret_from_fork+0x14/0x28
+[    1.598877] Exception stack(0xe0849fb0 to 0xe0849ff8)
+[    1.598888] 9fa0:                                     00000000 00000000 00000000 00000000
+[    1.598899] 9fc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+[    1.598908] 9fe0: 00000000 00000000 00000000 00000000 00000013 00000000
+[    1.598916] ---[ end trace 0000000000000000 ]---
+[    1.854237] sun4i-drm display-engine: bound 1e00000.display-frontend (ops 0xc0a5b5b8)
+[    1.862536] sun4i-drm display-engine: bound 1e60000.display-backend (ops 0xc0a5ad20)
+[    1.870546] sun4i-drm display-engine: bound 1e70000.drc (ops 0xc0a5a850)
+[    1.878343] sun4i-drm display-engine: No panel or bridge found... RGB output disabled
+[    1.886418] sun4i-drm display-engine: bound 1c0c000.lcd-controller (ops 0xc0a594b4)
+[    1.894194] sun4i-drm display-engine: bound 1ca0000.dsi (ops 0xc0a5c628)
+[    1.902076] [drm] Initialized sun4i-drm 1.0.0 for display-engine on minor 1
+[    1.909328] sun4i-drm display-engine: [drm] Cannot find any crtc or sizes
+[    1.916522] sun4i-drm display-engine: [drm] Cannot find any crtc or sizes
+[    1.928122] cpu cpu0: OPP table can't be empty
+[    1.944444] sun4i-usb-phy 1c19400.phy: Couldn't get regulator usb0_vbus... Deferring probe
+[    1.955118] panel-boe-jd9366 1ca0000.dsi.0: Starting probe...
+[    1.960941] panel-boe-jd9366 1ca0000.dsi.0: Read panel-id: 1
+[    1.966745] sunxi-mmc 1c0f000.mmc: initialized, max. request size: 16384 KB
+[    1.979377] sunxi-mmc 1c10000.mmc: initialized, max. request size: 16384 KB
+[    2.052343] mmc0: host does not support reading read-only switch, assuming write-enable
+[    2.062599] mmc0: new high speed SDHC card at address 1388
+[    2.069670] mmcblk0: mmc0:1388 SATC 29.1 GiB
+[    2.073726]  mmcblk0: p1 p2
+[    2.503961] panel-boe-jd9366 1ca0000.dsi.0: mipi_dsi_dcs_exit_sleep_mode() finished: 0
+[    2.504012] panel-boe-jd9366 1ca0000.dsi.0: mipi_dsi_dcs_set_display_on() finished: 0
+[    2.533932] panel-boe-jd9366 1ca0000.dsi.0: jd9366_prepare() SUCCESS.
+[    2.590963] Console: switching to colour frame buffer device 80x30
+[    2.659883] sun4i-drm display-engine: [drm] fb0: sun4i-drmdrmfb frame buffer device
+[    2.671351] sun6i-mipi-dsi 1ca0000.dsi: Attached device jd9366
+[    2.684295] sun4i-usb-phy 1c19400.phy: Couldn't get regulator usb0_vbus... Deferring probe
+[    2.719877] sun4i-usb-phy 1c19400.phy: Couldn't get regulator usb0_vbus... Deferring probe
+[    2.736158] clk: Disabling unused clocks
+[    2.742161] PM: genpd: Disabling unused power domains
+[    2.749177] ALSA device list:
+[    2.754017]   #0: A23 Audio Codec
+[    2.822368] EXT4-fs (mmcblk0p1): recovery complete
+[    2.830036] EXT4-fs (mmcblk0p1): mounted filesystem c44659ee-7994-48a3-9893-96c8bee21d1a r/w with ordered data mode. Quota mode: disabled.
+[    2.846540] VFS: Mounted root (ext4 filesystem) on device 179:1.
+[    2.854688] devtmpfs: mounted
+[    2.859776] VFS: Pivoted into new rootfs
+[    2.867117] Freeing unused kernel image (initmem) memory: 1024K
+[    2.875315] Run /sbin/init as init process
+[    2.881308]   with arguments:
+[    2.886121]     /sbin/init
+[    2.890567]   with environment:
+[    2.895447]     HOME=/
+[    2.899527]     TERM=linux
+[    3.027565] FAT-fs (mmcblk0p2): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+[    3.499221] zram0: detected capacity change from 0 to 524288
+[    6.542028] Adding 262140k swap on /dev/zram0.  Priority:100 extents:1 across:262140k SS
+[    6.656149] udevd[133]: starting version 3.2.14
+[    8.673946] random: crng init done
+[    8.709269] udevd[133]: starting eudev-3.2.14
+[   10.064863] file system registered
+[   10.100945] read descriptors
+[   10.105894] read strings
+[   10.587361] appd: launching app: glos-setup && rm /home/player/autolaunch
+[   13.278903] sun4i-usb-phy 1c19400.phy: Couldn't get regulator usb0_vbus... Deferring probe
+[   13.289592] platform 1c19000.usb: deferred probe pending: platform: supplier 1c19400.phy not ready
+[   13.298916] platform 1c1a000.usb: deferred probe pending: platform: supplier 1c19400.phy not ready
+[   13.310035] platform 1c1a400.usb: deferred probe pending: platform: supplier 1c19400.phy not ready
+[   13.321451] platform 1c19400.phy: deferred probe pending: (reason unknown)

@@ -1,0 +1,28 @@
+# OS images and downloads (tens of GB; get them from their projects)
+firmware/
+*.exe
+
+# Third-party clone and stock-firmware dumps (binaries)
+research/arkos4clone/
+research/stock_boot/*.bin
+research/stock_boot/*.img
+
+# Build outputs (rebuild with bootloader/build_uboot.sh, make_*_image.sh)
+bootloader/out/
+*.elf
+*.egon
+probe/**/probe.bin
+
+# Raw SD card / RAM backups and dumps
+*.backup.bin
+logs/dram_dump_*
+
+# Personal photos and videos
+files_for_refference/
+
+# Local tool settings and caches
+.claude/
+__pycache__/
+
+# Frames cut from the personal video
+logs/video/*.jpg

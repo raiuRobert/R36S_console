@@ -1,0 +1,4 @@
+===== 2026-10-17 16:44:03 fel_test /mnt/d/dev/R36s_console/bootloader/out/u-boot-a23-fel.bin  =====
+AWUSBFEX soc=00001650(A23) 00000001 ver=0001 44 08 scratchpad=00007e00 00000000 00000000
+usb_bulk_send() ERROR -7: Operation timed out
+RESULT: FEL upload failed
